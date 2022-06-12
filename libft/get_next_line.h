@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   triangle.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 03:19:28 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/08 04:25:28 by dmartiro         ###   ########.fr       */
+/*   Created: 2022/05/04 20:44:31 by aremkrtc          #+#    #+#             */
+/*   Updated: 2022/06/11 02:32:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void triangle(t_data data, int x, int y, int h)
-{
-    int lx;
-    int rx;
-    int l;
-    int r;
-    
-    lx = x;
-    rx = x;
-    while(y <= h)
-    {       
-        l = lx--;
-        r = rx++;
-        while(l <= r)
-        {
-            draw(&data, l, y, 0x5500FFCC);
-            l++;
-        }
-        lx--;
-        rx++;
-        y++;
-    }
-}
+# include <unistd.h>
+# include <stdlib.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42 
+# endif
+#include "libft.h"
+char	*get_next_line(int fd);
+
+#endif

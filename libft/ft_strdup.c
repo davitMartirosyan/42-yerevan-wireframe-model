@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 03:16:41 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/08 03:16:54 by dmartiro         ###   ########.fr       */
+/*   Created: 2022/03/28 18:54:27 by dmartiro          #+#    #+#             */
+/*   Updated: 2022/04/03 21:56:41 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "libft.h"
 
-void draw(t_data *data, int x, int y, int color)
+char	*ft_strdup(const char *s)
 {
-    char *dst;
+	size_t	len;
+	char	*dup;
 
-    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-    *(unsigned int *)dst = color; 
+	len = ft_strlen(s) + 1;
+	dup = malloc(sizeof(char) * len);
+	if (!dup)
+		return (NULL);
+	dup = ft_memcpy(dup, s, len);
+	return (dup);
 }

@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_prime.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 03:19:23 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/08 03:19:24 by dmartiro         ###   ########.fr       */
+/*   Created: 2022/03/24 18:23:24 by dmartiro          #+#    #+#             */
+/*   Updated: 2022/04/04 18:27:04 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "libft.h"
 
-int is_prime(int x)
+int	ft_isalpha(int c)
 {
-    int i;
-
-    i = 2;
-    while(i < x)
-    {
-        if(x % i == 0)
-            return (0);
-        i++;
-    }
-    return (1);
+	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
 }
