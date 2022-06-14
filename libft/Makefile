@@ -74,10 +74,10 @@ CC_FLAGS = -Wall -Wextra -Werror
 $(OBJS_DIR)%.o : %.c libft.h get_next_line.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c $< -o $@
+	@clang $(CC_FLAGS) -c -fPIE $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_PREFIXED) 
 	@echo "Libft Done !"
 
 all: $(NAME)

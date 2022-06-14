@@ -13,7 +13,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#include <mlx.h>
+// #include <mlx.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>

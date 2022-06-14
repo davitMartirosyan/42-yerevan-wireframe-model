@@ -19,21 +19,38 @@ static void map_height(t_axios *wm, char *file)
     
     fd = open(file, O_RDONLY, 0);
     height = 0;
-    while(get_next_line(fd, 1))
+    while(get_next_line(fd))
         height++;
     wm->height = height;
     close(fd);
 }
 
-
-static void map_width(t_axios *wm, char *file)
+static void	map_width(t_axios *wm, char *file, char *str, char **buf)
 {
+	int		read_len;
+	char	*str2;
     int fd;
 
     fd = open(file, O_RDONLY, 0);
-    wm->width = ft_wdcounter(get_next_line(fd, 0), ' ');
+	read_len = read(fd, str, BUFF_SIZE);
+	while (read_len > 0)
+	{
+		str[read_len] = 0;
+		if (!*buf)
+			*buf = ft_substr(str, 0, read_len);
+		else
+		{
+			str2 = *buf;
+			*buf = ft_strjoin(*buf, str);
+			free(str2);
+		}
+		if (ft_strchr(str, '\n'))
+			break ;
+		read_len = read(fd, str, BUFF_SIZE);
+	}
     close(fd);
 }
+
 
 static void matrix_space(int *matrix, char *line)
 {
@@ -48,20 +65,20 @@ static void matrix_space(int *matrix, char *line)
 
 void generate_map_array(t_axios *wm, char *fname)
 {
-    int i;
-    int f;
-    
+    char	*str;
+	static char	*buff;
+    char **split;
+    int width;
+
+    width = 0;
+    str = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
+	if (!str)
+		return ;
+    map_width(wm, fname, str, &buff);
     map_height(wm, fname);
-    map_width(wm, fname);
-    f = open(fname, O_RDONLY, 0);
-    i = 0;
-    wm->matrix = (int **)malloc(sizeof(int *) * (wm->height));
-    while(i <= wm->height)
-    {
-        wm->matrix[i] = (int *)malloc(sizeof(int) * (wm->width));
-        i++;
-    }
-    i = 0;
-    while(i < wm->height)
-        matrix_space(wm->matrix[i++], get_next_line(f, 1));
+    split = ft_split(buff, ' ');
+    while(split[width])
+        width++;
+    wm->width = width;
+    free(buff);
 }

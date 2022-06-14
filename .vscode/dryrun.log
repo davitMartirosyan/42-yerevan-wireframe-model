@@ -1,0 +1,19 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/dmartiro/fdf'
+ 
+echo "Compiling src/draw_map.c"
+ 
+gcc -Imlx -c src/draw_map.c -o src/draw_map.o
+ 
+echo "Compiling src/fdf.c"
+ 
+gcc -Imlx -c src/fdf.c -o src/fdf.o
+ 
+echo "Compiling src/map_generator.c"
+ 
+gcc -Imlx -c src/map_generator.c -o src/map_generator.o
+ 
+gcc  src/draw_map.o  src/fdf.o  src/map_generator.o -lmlx -framework OpenGL -framework AppKit libft/libft.a -o fdf
+ 
+make: Leaving directory '/home/dmartiro/fdf'
+ 
