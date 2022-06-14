@@ -6,37 +6,27 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 02:37:07 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/11 02:40:42 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/14 04:21:05 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	stringstartedfrom(const char *c, char delimiter)
+int		ft_wdcounter(char const *str, char c)
 {
-	size_t	i;
+	int i;
+	int words;
 
+	words = 0;
 	i = 0;
-	while (c[i] && c[i] == delimiter)
-		i++;
-	return (i);
-}
-
-int	ft_wordcounter(const char *c, int delimiter)
-{
-	size_t	i;
-	size_t	wordcounter;
-
-	i = stringstartedfrom(c, delimiter);
-	wordcounter = 0;
-	while (c[i] && c[i] != delimiter)
+	while (str[i])
 	{
-		if (c[i + 1] == delimiter || c[i + 1] == '\0')
-		{
-			wordcounter++;
-			i += stringstartedfrom(&c[i + 1], delimiter);
-		}
-		i++;
+		while (str[i] == c && str[i] != '\0')
+			i++;
+		if (str[i])
+			words++;
+		while (str[i] != c && str[i] != '\0')
+			i++;
 	}
-	return (wordcounter);
+	return (words);
 }

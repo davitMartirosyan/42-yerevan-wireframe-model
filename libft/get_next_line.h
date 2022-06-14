@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 20:44:31 by aremkrtc          #+#    #+#             */
-/*   Updated: 2022/06/11 02:32:33 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/14 06:10:51 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 #  define BUFFER_SIZE 42 
 # endif
 #include "libft.h"
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int a);
 
 #endif

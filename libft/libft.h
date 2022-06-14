@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 18:22:35 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/11 02:38:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/14 06:14:43 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		ft_wordcounter(const char *c, int delimiter);
+int		ft_wdcounter(char const *str, char c);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
@@ -74,5 +74,5 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 int		ft_lstsize(t_list *lst);
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int a);
 #endif

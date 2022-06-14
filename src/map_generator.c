@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 02:43:49 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/12 06:25:27 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/14 06:13:50 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void map_height(t_axios *wm, char *file)
     
     fd = open(file, O_RDONLY, 0);
     height = 0;
-    while(get_next_line(fd))
+    while(get_next_line(fd, 1))
         height++;
     wm->height = height;
     close(fd);
@@ -31,7 +31,7 @@ static void map_width(t_axios *wm, char *file)
     int fd;
 
     fd = open(file, O_RDONLY, 0);
-    wm->width = ft_wordcounter(get_next_line(fd), ' ');
+    wm->width = ft_wdcounter(get_next_line(fd, 0), ' ');
     close(fd);
 }
 
@@ -51,8 +51,8 @@ void generate_map_array(t_axios *wm, char *fname)
     int i;
     int f;
     
-    map_width(wm, fname);
     map_height(wm, fname);
+    map_width(wm, fname);
     f = open(fname, O_RDONLY, 0);
     i = 0;
     wm->matrix = (int **)malloc(sizeof(int *) * (wm->height));
@@ -63,5 +63,5 @@ void generate_map_array(t_axios *wm, char *fname)
     }
     i = 0;
     while(i < wm->height)
-        matrix_space(wm->matrix[i++], get_next_line(f));
+        matrix_space(wm->matrix[i++], get_next_line(f, 1));
 }

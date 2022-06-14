@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 20:04:04 by aremkrtc          #+#    #+#             */
-/*   Updated: 2022/06/11 01:28:27 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/14 06:10:34 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ static char	*main_process(char **buf)
 	return (for_substr);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int a)
 {
 	char		*str;
 	static char	*buf;
 	char		*temp;
 
+	if(a == 0)
+		buf = NULL;
 	if (fd < 0 || fd > 65535 || BUFFER_SIZE < 1)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));

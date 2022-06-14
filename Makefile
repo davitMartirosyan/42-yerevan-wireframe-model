@@ -1,6 +1,6 @@
 NAME = fdf
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+# CFLAGS = -Wall -Wextra -Werror -g
 FRAME_FLAGS = -lmlx -framework OpenGL -framework AppKit
 G_FLAG = -Imlx
 S_DIR = src/
@@ -14,7 +14,7 @@ $(NAME) : $(OBJECT)
 
 %.o : %.c header.h
 	@echo "Compiling $<"
-	@$(CC) $(CFLAGS) $(G_FLAG) -c $< -o $@
+	@$(CC) $(G_FLAG) -c $< -o $@
 
 clean : 
 	@rm $(S_DIR)*.o
