@@ -1,43 +1,24 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Tue Jun 21 16:54:13 2022
- 
+# Make data base, printed on Tue Jun 21 16:59:44 2022
 
 # Variables
- 
 
- 
 # environment
- 
 LC_ALL = C
- 
 # makefile (from 'Makefile', line 9)
- 
 OBJECT = $(patsubst %.c, %.o, $(SOURCE))
- 
 # environment
- 
 VSCODE_CWD = /home/dmartiro
- 
 # makefile (from 'Makefile', line 5)
- 
 G_FLAG = -Imlx
- 
 # makefile (from 'Makefile', line 6)
- 
 S_DIR = src/
 # default
 MAKE_COMMAND := make
@@ -74,7 +55,7 @@ CURDIR := /home/dmartiro/fdf
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -154,7 +135,7 @@ _ = /home/dmartiro/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/n
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-94e6348c-1a4c-4a3c-ad89-16acc5367872.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-e1898b4b-2498-4430-be40-6900f7fce26e.sock
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -241,7 +222,7 @@ src/fdf.o: src/fdf.c header.h
 # automatic
 # ^ := src/fdf.c header.h
 # automatic
-# ? := src/fdf.c
+# ? := src/fdf.c header.h
 # automatic
 # | := 
 # variable set hash-table stats:
@@ -293,13 +274,14 @@ src/fdf.c:
 # Not a target:
 header.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 11:19:28.051853147
+#  Last modified 2022-06-21 16:57:58.140200457
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
 # Load=11/1024=1%, Rehash=0, Collisions=0/31=0%
 # VPATH Search Paths
+ 
 
 # No 'vpath' search paths.
 
@@ -311,6 +293,6 @@ header.h:
 # strcache performance: lookups = 49 / hit rate = 36%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=0/49=0%
-# Finished Make data base on Tue Jun 21 16:54:13 2022
+# Finished Make data base on Tue Jun 21 16:59:44 2022
 
  
