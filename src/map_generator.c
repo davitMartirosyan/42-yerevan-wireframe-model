@@ -1,84 +1,68 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   map_generator.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 02:43:49 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/14 06:13:50 by dmartiro         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../header.h"
 
-static void map_height(t_axios *wm, char *file)
+static int map_width(char *filename)
 {
-    int height;
     int fd;
-    
-    fd = open(file, O_RDONLY, 0);
-    height = 0;
-    while(get_next_line(fd))
-        height++;
-    wm->height = height;
+    int i;
+    char **split;
+
+    i = 0;
+    fd = open(filename, O_RDONLY);
+    split = ft_split(get_next_line(fd, 1), ' ');
+    while(split[i])
+        i++;
     close(fd);
+    return (i);
 }
 
-static void	map_width(t_axios *wm, char *file, char *str, char **buf)
+static int map_height(char *filename)
 {
-	int		read_len;
-	char	*str2;
     int fd;
+    int i;
 
-    fd = open(file, O_RDONLY, 0);
-	read_len = read(fd, str, BUFF_SIZE);
-	while (read_len > 0)
-	{
-		str[read_len] = 0;
-		if (!*buf)
-			*buf = ft_substr(str, 0, read_len);
-		else
-		{
-			str2 = *buf;
-			*buf = ft_strjoin(*buf, str);
-			free(str2);
-		}
-		if (ft_strchr(str, '\n'))
-			break ;
-		read_len = read(fd, str, BUFF_SIZE);
-	}
+    i = 0;
+    fd = open(filename, O_RDONLY);
+    while(get_next_line(fd, 1))
+        i++;
+
+    get_next_line(fd, 0);
     close(fd);
+    return (i);
 }
 
+static void create_matrix(int *matrix, char *line)
+{
+   char **split;
+   int i;
 
-static void matrix_space(int *matrix, char *line)
+   i = 0;
+   split = ft_split(line, ' ');
+   while(split[i])
+    {
+        matrix[i] = ft_atoi(split[i]);
+        // printf("%d\n", ft_atoi(split[i]));
+        i++;
+    }
+}
+
+void map_init(t_axios *axios, char *filename)
 {
     int i;
-    char **n;
+    int fd;
+    char *line;
 
-    n = ft_split(line, ' ');
+    axios->width = map_width(filename);
+    axios->height = map_height(filename);
+    axios->matrix = (int **)malloc(sizeof(int *) * axios->height);
     i = 0;
-    while(n[i++])
-        matrix[i] = ft_atoi(n[i]);
-}
-
-void generate_map_array(t_axios *wm, char *fname)
-{
-    char	*str;
-	static char	*buff;
-    char **split;
-    int width;
-
-    width = 0;
-    str = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
-	if (!str)
-		return ;
-    map_width(wm, fname, str, &buff);
-    map_height(wm, fname);
-    split = ft_split(buff, ' ');
-    while(split[width])
-        width++;
-    wm->width = width;
-    free(buff);
+    while(i < axios->height)
+        axios->matrix[i++] = (int *)malloc(sizeof(int) * axios->width);
+    fd = open(filename, O_RDONLY);
+    i = 0;
+    while((line = get_next_line(fd, 1)) != NULL)
+    {
+        create_matrix(axios->matrix[i++], line);
+        free(line);
+    }
+    close(fd);
 }

@@ -13,7 +13,8 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-// #include <mlx.h>
+#include <mlx.h>
+#include "libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -22,8 +23,6 @@
 #include <unistd.h>
 #include <sys/stat.h> 
 #include <fcntl.h>
-#include "libft/libft.h"
-#define BUFF_SIZE 1
 typedef struct s_axios
 {
     void *mlx;
@@ -36,12 +35,5 @@ typedef struct s_axios
 }   t_axios;
 
 //generating
-void generate_map_array(t_axios *wm, char *fname);
-
-//drawing
-void drawing(float x, float y, float x1, float y1, t_axios *matrix);
-void map(t_axios *matrix);
-float mod(float i);
-float max(float a, float b);
-void isometric(float *x, float *y, int z);
+void map_init(t_axios *axios, char *filename);
 #endif

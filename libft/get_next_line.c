@@ -58,12 +58,14 @@ static char	*main_process(char **buf)
 	return (for_substr);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int check)
 {
 	char		*str;
 	static char	*buf;
 	char		*temp;
 
+	if(check == 0)
+		free(buf);
 	if (fd < 0 || fd > 65535 || BUFFER_SIZE < 1)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));

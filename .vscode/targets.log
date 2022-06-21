@@ -13,7 +13,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
  
 
  
-# Make data base, printed on Tue Jun 14 18:15:29 2022
+# Make data base, printed on Tue Jun 21 16:54:13 2022
  
 
 # Variables
@@ -39,7 +39,6 @@ G_FLAG = -Imlx
 # makefile (from 'Makefile', line 6)
  
 S_DIR = src/
- 
 # default
 MAKE_COMMAND := make
 # environment
@@ -54,8 +53,6 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 PWD = /home/dmartiro/fdf
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# environment
-OLDPWD = /home/dmartiro/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -77,7 +74,7 @@ CURDIR := /home/dmartiro/fdf
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -115,7 +112,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/dmartiro/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+PATH = /home/dmartiro/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 # default
 MAKEFILES := 
 # environment
@@ -123,7 +120,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 10.0.2.2 57585 4242
+SSH_CLIENT = 10.0.2.2 49837 4242
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -137,7 +134,7 @@ LS_COLORS =
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-BROWSER = /home/dmartiro/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/helpers/browser.sh
+BROWSER = /home/dmartiro/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/helpers/browser.sh
 # environment
 LOGNAME = dmartiro
 # makefile
@@ -153,11 +150,11 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 VSCODE_AGENT_FOLDER = /home/dmartiro/.vscode-server
 # environment
-_ = /home/dmartiro/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/node
+_ = /home/dmartiro/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/node
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-cc4f8a32-74a8-44f7-9edd-ea696c596ecb.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-94e6348c-1a4c-4a3c-ad89-16acc5367872.sock
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -165,7 +162,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/dmartiro
 # environment
-XDG_SESSION_ID = 1
+XDG_SESSION_ID = 3
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -179,9 +176,9 @@ FRAME_FLAGS = -lmlx -framework OpenGL -framework AppKit
 # makefile (from 'Makefile', line 2)
 CC = gcc
 # environment
-SSH_CONNECTION = 10.0.2.2 57585 10.0.2.15 4242
+SSH_CONNECTION = 10.0.2.2 49837 10.0.2.15 4242
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=2/115=2%
+# Load=74/1024=7%, Rehash=0, Collisions=2/114=2%
 
 # Pattern-specific Variable Values
 
@@ -189,10 +186,10 @@ SSH_CONNECTION = 10.0.2.2 57585 10.0.2.15 4242
 
 # Directories
 
-# src (device 2056, inode 134866): 5 files, no impossibilities.
-# . (device 2056, inode 131716): 13 files, no impossibilities.
+# src (device 2056, inode 134866): 6 files, no impossibilities.
+# . (device 2056, inode 131716): 14 files, no impossibilities.
 
-# 18 files, no impossibilities in 2 directories.
+# 20 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -211,16 +208,9 @@ src/map_generator.o:
 #  File has not been updated.
 
 # Not a target:
-src/draw_map.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-14 18:07:46.403993606
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 18:07:46.399993606
+#  Last modified 2022-06-21 10:28:58.791955188
 #  File has been updated.
 #  Successfully updated.
 
@@ -232,21 +222,43 @@ clean:
 	@rm $(S_DIR)*.o
 	@echo "Object Files Was Cleaned"
 
-# Not a target:
-src/fdf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/fdf.o: src/fdf.c header.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/fdf'
+#  Last modified 2022-06-21 15:35:07.764012808
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := src/fdf.o
+# automatic
+# * := src/fdf
+# automatic
+# < := src/fdf.c
+# automatic
+# + := src/fdf.c header.h
+# automatic
+# % := 
+# automatic
+# ^ := src/fdf.c header.h
+# automatic
+# ? := src/fdf.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
+#  recipe to execute (from 'Makefile', line 16):
+	@echo "Compiling $<"
+	@$(CC) $(G_FLAG) -c $< -o $@
 
-fdf: src/draw_map.o src/fdf.o src/map_generator.o
+fdf: src/fdf.o src/map_generator.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-06-21 15:35:07.784012809
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 13):
-	@$(CC) $(OBJECT) $(FRAME_FLAGS) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJECT) $(LIBFT) -o $(NAME)
 
 # Not a target:
 .DEFAULT:
@@ -271,56 +283,34 @@ fclean:
 	@rm -f $(NAME)
 	@echo "Executable $(NAME) Was Removed"
 
-src/draw_map.o: src/draw_map.c header.h
+# Not a target:
+src/fdf.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/draw_map'
-#  File does not exist.
+#  Last modified 2022-06-21 15:38:23.752020207
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := src/draw_map.o
-# automatic
-# * := src/draw_map
-# automatic
-# < := src/draw_map.c
-# automatic
-# + := src/draw_map.c header.h
-# automatic
-# % := 
-# automatic
-# ^ := src/draw_map.c header.h
-# automatic
-# ? := src/draw_map.c header.h
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
-#  recipe to execute (from 'Makefile', line 16):
-	@echo "Compiling $<"
-	@$(CC) $(G_FLAG) -c $< -o $@
+#  Successfully updated.
 
 # Not a target:
 header.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 18:11:31.39598438
+#  Last modified 2022-06-21 11:19:28.051853147
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/33=0%
+# Load=11/1024=1%, Rehash=0, Collisions=0/31=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 303 B / avg = 9 B
-# current buf: size = 8162 B / used = 303 B / count = 31 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 289 B / avg = 9 B
+# current buf: size = 8162 B / used = 289 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 48 / hit rate = 35%
+# strcache performance: lookups = 49 / hit rate = 36%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=0/48=0%
-# Finished Make data base on Tue Jun 14 18:15:29 2022
- 
+# Load=31/8192=0%, Rehash=0, Collisions=0/49=0%
+# Finished Make data base on Tue Jun 21 16:54:13 2022
 
  
