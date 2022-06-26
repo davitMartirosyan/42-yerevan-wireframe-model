@@ -6,11 +6,17 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 04:23:37 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 05:24:04 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/26 07:17:11 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+void isometric(float *x, float *y, int z)
+{
+    *x = (*x - *y) * cos(0.8);
+    *y = (*x + *y) * sin(0.8) - z;
+}
 
 void wireframe_init(t_axios *axios)
 {

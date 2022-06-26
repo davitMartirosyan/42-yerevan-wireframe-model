@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 01:23:44 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 06:41:45 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/26 07:17:01 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ typedef struct s_axios
 void map_init(t_axios *axios, char *filename);
 void draw(float x, float y, float x1, float y1, t_axios *axios);
 void wireframe_init(t_axios *axios);
-
+void isometric(float *x, float *y, int z);
 #endif
