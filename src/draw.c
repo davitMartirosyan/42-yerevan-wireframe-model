@@ -6,19 +6,18 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 02:17:54 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 04:46:57 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/26 06:44:38 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
-#include <math.h>
-static float max(float a, float b)
+static float  max(float a, float b) 
 {
-    return (a > b ? a : b);
+    return (a > b) ? a : b;
 }
-static float pos(float n)
+static float  pos(float n)
 {
-    return (n < 0 ? -n : n);
+    return (n < 0 ) ? -n : n;
 }
 static void scale(t_axios *axios, float *x, float *y, float *x1, float *y1)
 {
@@ -45,16 +44,15 @@ void draw(float x, float y, float x1, float y1, t_axios *axios) //[1:1][3:12]
     z = axios->matrix[(int) y][(int) x];
     z1 = axios->matrix[(int) y1][(int) x1];
     scale(axios, &x, &y, &x1, &y1);
+    axios->rgb = (z || z1) ? 0xffffff : axios->rgb;
+    isometric(&x, &y, z);
+    isometric(&x1, &y1, z1);
+    x += axios->_x;
+    x1 += axios->_x;
+    y += axios->_y;
+    y1 += axios->_y;
     x_step = x1 - x; // 2 
     y_step = y1 - y; // 11
-    axios->rgb = (z || z1) ? 0xffffff : axios->rgb;
-    // isometric(&x, &y, z);
-    // isometric(&x1, &y1, z1);
-
-    x += 150;
-    x1 += 150;
-    y += 150;
-    y1 += 150;
     step = max(pos(x_step), pos(y_step));
     x_step /= step;
     y_step /= step;

@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 01:23:44 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 04:46:09 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/06/26 06:41:45 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
+#include <math.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/stat.h> 
@@ -32,6 +32,8 @@ typedef struct s_axios
     int width;
     int height;
     int **matrix;
+    int _x;
+    int _y;
 }   t_axios;
 
 //generating
