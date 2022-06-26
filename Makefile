@@ -10,7 +10,7 @@ OBJECT = $(patsubst %.c, %.o, $(SOURCE))
 all : $(NAME)
 
 $(NAME) : $(OBJECT)
-	@$(CC) $(OBJECT) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJECT) $(FRAME_FLAGS) $(LIBFT) -o $(NAME)
 
 %.o : %.c header.h
 	@echo "Compiling $<"
