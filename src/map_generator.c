@@ -40,7 +40,6 @@ static void create_matrix(int *matrix, char *line)
    while(split[i])
     {
         matrix[i] = ft_atoi(split[i]);
-        // printf("%d\n", ft_atoi(split[i]));
         i++;
     }
 }

@@ -1,9 +1,27 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/dmartiro/fdf'
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/dmartiro/42-yerevan-wireframe-model'
+ 
+echo "Compiling src/draw.c"
+ 
+gcc -Imlx -c src/draw.c -o src/draw.o
+ 
 echo "Compiling src/fdf.c"
+ 
 gcc -Imlx -c src/fdf.c -o src/fdf.o
+ 
 echo "Compiling src/map_generator.c"
+ 
 gcc -Imlx -c src/map_generator.c -o src/map_generator.o
-gcc  src/fdf.o  src/map_generator.o libft/libft.a -o fdf
-make: Leaving directory '/home/dmartiro/fdf'
+ 
+echo "Compiling src/run.c"
+ 
+gcc -Imlx -c src/run.c -o src/run.o
+ 
+echo "Compiling src/wireframe_init.c"
+ 
+gcc -Imlx -c src/wireframe_init.c -o src/wireframe_init.o
+ 
+gcc  src/draw.o  src/fdf.o  src/map_generator.o  src/run.o  src/wireframe_init.o -lmlx -framework OpenGL -framework AppKit libft/libft.a -o fdf
+ 
+make: Leaving directory '/home/dmartiro/42-yerevan-wireframe-model'
  

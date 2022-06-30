@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 16:59:44 2022
+# Make data base, printed on Thu Jun 30 14:49:17 2022
 
 # Variables
 
@@ -31,7 +31,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/dmartiro/fdf
+PWD = /home/dmartiro/42-yerevan-wireframe-model
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # automatic
@@ -51,11 +51,11 @@ LANG = C
 # makefile
 MAKEFLAGS = pqrR
 # makefile
-CURDIR := /home/dmartiro/fdf
+CURDIR := /home/dmartiro/42-yerevan-wireframe-model
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -101,7 +101,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 10.0.2.2 49837 4242
+SSH_CLIENT = 10.0.2.2 65428 4242
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -135,7 +135,7 @@ _ = /home/dmartiro/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/n
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-e1898b4b-2498-4430-be40-6900f7fce26e.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-64fd4e44-dc62-4e7c-9895-ab950becce7d.sock
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -157,7 +157,7 @@ FRAME_FLAGS = -lmlx -framework OpenGL -framework AppKit
 # makefile (from 'Makefile', line 2)
 CC = gcc
 # environment
-SSH_CONNECTION = 10.0.2.2 49837 10.0.2.15 4242
+SSH_CONNECTION = 10.0.2.2 65428 10.0.2.15 4242
 # variable set hash-table stats:
 # Load=74/1024=7%, Rehash=0, Collisions=2/114=2%
 
@@ -167,10 +167,10 @@ SSH_CONNECTION = 10.0.2.2 49837 10.0.2.15 4242
 
 # Directories
 
-# src (device 2056, inode 134866): 6 files, no impossibilities.
-# . (device 2056, inode 131716): 14 files, no impossibilities.
+# src (device 2056, inode 136633): 7 files, no impossibilities.
+# . (device 2056, inode 134873): 9 files, no impossibilities.
 
-# 20 files, no impossibilities in 2 directories.
+# 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -189,9 +189,22 @@ src/map_generator.o:
 #  File has not been updated.
 
 # Not a target:
+src/run.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/draw.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-30 14:46:24.940291284
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 10:28:58.791955188
+#  Last modified 2022-06-30 14:49:00.028297139
 #  File has been updated.
 #  Successfully updated.
 
@@ -203,43 +216,21 @@ clean:
 	@rm $(S_DIR)*.o
 	@echo "Object Files Was Cleaned"
 
-src/fdf.o: src/fdf.c header.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'src/fdf'
-#  Last modified 2022-06-21 15:35:07.764012808
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := src/fdf.o
-# automatic
-# * := src/fdf
-# automatic
-# < := src/fdf.c
-# automatic
-# + := src/fdf.c header.h
-# automatic
-# % := 
-# automatic
-# ^ := src/fdf.c header.h
-# automatic
-# ? := src/fdf.c header.h
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
-#  recipe to execute (from 'Makefile', line 16):
-	@echo "Compiling $<"
-	@$(CC) $(G_FLAG) -c $< -o $@
-
-fdf: src/fdf.o src/map_generator.o
+# Not a target:
+src/fdf.o:
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-21 15:35:07.784012809
+#  Modification time never checked.
+#  File has not been updated.
+
+fdf: src/draw.o src/fdf.o src/map_generator.o src/run.o src/wireframe_init.o
+#  Implicit rule search has not been done.
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 13):
-	@$(CC) $(OBJECT) $(LIBFT) -o $(NAME)
+	@$(CC) $(OBJECT) $(FRAME_FLAGS) $(LIBFT) -o $(NAME)
 
 # Not a target:
 .DEFAULT:
@@ -265,34 +256,61 @@ fclean:
 	@echo "Executable $(NAME) Was Removed"
 
 # Not a target:
-src/fdf.c:
+src/wireframe_init.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/draw.o: src/draw.c header.h
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 15:38:23.752020207
+#  Implicit/static pattern stem: 'src/draw'
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := src/draw.o
+# automatic
+# * := src/draw
+# automatic
+# < := src/draw.c
+# automatic
+# + := src/draw.c header.h
+# automatic
+# % := 
+# automatic
+# ^ := src/draw.c header.h
+ 
+# automatic
+# ? := src/draw.c header.h
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
+#  recipe to execute (from 'Makefile', line 16):
+	@echo "Compiling $<"
+	@$(CC) $(G_FLAG) -c $< -o $@
 
 # Not a target:
 header.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 16:57:58.140200457
+#  Last modified 2022-06-30 14:45:24.044288985
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/31=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
- 
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 289 B / avg = 9 B
-# current buf: size = 8162 B / used = 289 B / count = 31 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 280 B / avg = 9 B
+# current buf: size = 8162 B / used = 280 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 49 / hit rate = 36%
+# strcache performance: lookups = 48 / hit rate = 35%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=0/49=0%
-# Finished Make data base on Tue Jun 21 16:59:44 2022
+# Load=31/8192=0%, Rehash=0, Collisions=1/48=2%
+# Finished Make data base on Thu Jun 30 14:49:17 2022
 
  

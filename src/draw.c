@@ -11,28 +11,13 @@
 /* ************************************************************************** */
 
 #include "../header.h"
-static float  max(float a, float b) 
-{
-    return (a > b) ? a : b;
-}
-static float  pos(float n)
-{
-    return (n < 0 ) ? -n : n;
-}
-static void scale(t_axios *axios, float *x, float *y, float *x1, float *y1)
-{
-    *x *= axios->scale;
-    *y *= axios->scale;
-    *x1 *= axios->scale;
-    *y1 *= axios->scale;
-}
 
-static void move(t_axios *axios, float *x, float *y, float *x1, float *y1)
+static int rgb(t_axios *axios, int z, int z1)
 {
-    *x += axios->_x;
-    *x1 += axios->_x;
-    *y += axios->_y;
-    *y1 += axios->_y;
+    if(z || z1)
+        return (0xffffff);
+    else
+        return (axios->rgb);
 }
 
 void draw(float x, float y, float x1, float y1, t_axios *axios) //[1:1][3:12]
@@ -45,8 +30,9 @@ void draw(float x, float y, float x1, float y1, t_axios *axios) //[1:1][3:12]
     
     z = axios->matrix[(int) y][(int) x];
     z1 = axios->matrix[(int) y1][(int) x1];
-    scale(axios, &x, &y, &x1, &y1);
-    axios->rgb = (z || z1) ? 0xffffff : axios->rgb;
+    scale(axios, &x, &y);
+    scale(axios, &x1, &y1);
+    axios->rgb = rgb(axiosm z, z1);
     isometric(&x, &y, z);
     isometric(&x1, &y1, z1);
     move(axios, &x, &y, &x1, &y1);
