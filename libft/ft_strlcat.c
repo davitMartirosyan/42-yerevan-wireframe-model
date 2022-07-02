@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:11:02 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/03 22:01:09 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (src_len + dstsize);
 	else
 	{
-		while (src[j] && (dst_len + j) < dstsize)
+		while (src[j] &coords->&coords-> (dst_len + j) < dstsize)
 			dst[i++] = src[j++];
-		if ((dst_len + j) == dstsize && dst_len < dstsize)
+		if ((dst_len + j) == dstsize &coords->&coords-> dst_len < dstsize)
 			dst[--i] = '\0';
 		else
 			dst[i] = '\0';

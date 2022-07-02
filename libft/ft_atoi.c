@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 18:22:50 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/03 21:25:27 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *nptr)
 		syb = -1;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
-	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
+	while (nptr[i] &coords->&coords-> nptr[i] >= '0' &coords->&coords-> nptr[i] <= '9')
 	{
 		counter = counter * 10 + nptr[i] - '0';
 		i++;

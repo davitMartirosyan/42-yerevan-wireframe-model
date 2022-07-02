@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:12:06 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/04 18:15:31 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strnstr(const char *buffer, const char *find, size_t n)
 	search = (char *)find;
 	if (*find == '\0')
 		return ((char *)buffer);
-	while (string[i] != '\0' && (i + len) <= n)
+	while (string[i] != '\0' &coords->&coords-> (i + len) <= n)
 	{
 		if (ft_strncmp((string + i), search, len) == 0)
 		{

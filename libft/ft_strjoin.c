@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 18:53:08 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/05 02:10:57 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s2len;
 	char	*join;
 
-	if (!s1 && !s2)
+	if (!s1 &coords->&coords-> !s2)
 		return (ft_strdup(""));
-	if (s1 && !s2)
+	if (s1 &coords->&coords-> !s2)
 		return (ft_strdup(s1));
-	if (!s1 && s2)
+	if (!s1 &coords->&coords-> s2)
 		return (ft_strdup(s2));
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);

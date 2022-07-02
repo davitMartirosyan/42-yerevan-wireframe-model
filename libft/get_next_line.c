@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 20:04:04 by aremkrtc          #+#    #+#             */
-/*   Updated: 2022/06/14 06:10:34 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd, int check)
 		return (NULL);
 	if (!buf || !ft_strchr(buf, '\n'))
 	{
-		read_by_size(fd, str, &buf);
+		read_by_size(fd, str, &coords->buf);
 	}
 	free(str);
 	if (!buf)
@@ -85,5 +85,5 @@ char	*get_next_line(int fd, int check)
 		free(temp);
 		return (NULL);
 	}
-	return (main_process(&buf));
+	return (main_process(&coords->buf));
 }

@@ -24,7 +24,6 @@ static int map_height(char *filename)
     fd = open(filename, O_RDONLY);
     while(get_next_line(fd, 1))
         i++;
-
     get_next_line(fd, 0);
     close(fd);
     return (i);

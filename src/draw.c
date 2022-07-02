@@ -6,21 +6,21 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 02:17:54 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 07:21:11 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:02:25 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-static int rgb(t_axios *axios, int z, int z1)
+int rgb(int z, int z1, int def)
 {
     if(z || z1)
         return (0xffffff);
     else
-        return (axios->rgb);
+        return (def);
 }
 
-void draw(float x, float y, float x1, float y1, t_axios *axios) //[1:1][3:12]
+void draw(t_coords coords, t_axios *axios)
 {
     float x_step;
     float y_step;
@@ -28,23 +28,22 @@ void draw(float x, float y, float x1, float y1, t_axios *axios) //[1:1][3:12]
     int z;
     int z1;
     
-    z = axios->matrix[(int) y][(int) x];
-    z1 = axios->matrix[(int) y1][(int) x1];
-    scale(axios, &x, &y);
-    scale(axios, &x1, &y1);
-    axios->rgb = rgb(axiosm z, z1);
-    isometric(&x, &y, z);
-    isometric(&x1, &y1, z1);
-    move(axios, &x, &y, &x1, &y1);
-    x_step = x1 - x; // 2 
-    y_step = y1 - y; // 11
+    z = axios->matrix[(int) coords.y][(int) coords.x];
+    z1 = axios->matrix[(int) coords.y1][(int) coords.x1];
+    scale(axios, &coords.x, &coords.y, &coords.x1, &coords.y1);
+    axios->rgb = rgb(z, z1, axios->rgb);
+    isometric(&coords.x, &coords.y, z);
+    isometric(&coords.x1, &coords.y1, z1);
+    move(axios, &coords.x, &coords.y, &coords.x1, &coords.y1);
+    x_step = coords.x1 - coords.x;
+    y_step = coords.y1 - coords.y;
     step = max(pos(x_step), pos(y_step));
     x_step /= step;
     y_step /= step;
-    while((int)(x - x1) || (int)(y - y1))
+    while((int)(coords.x - coords.x1) || (int)(coords.y - coords.y1))
     {
-        mlx_pixel_put(axios->mlx, axios->mlx_win, x, y, axios->rgb);
-        x += x_step;
-        y += y_step;
+        mlx_pixel_put(axios->mlx, axios->mlx_win, coords.x, coords.y, axios->rgb);
+        coords.x += x_step;
+        coords.y += y_step;
     }
 }

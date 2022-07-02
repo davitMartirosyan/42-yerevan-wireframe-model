@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run.c                                              :+:      :+:    :+:   */
+/*   cord.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 22:36:49 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/30 22:36:49 by marvin           ###   ########.fr       */
+/*   Created: 2022/06/28 00:46:13 by dmartiro          #+#    #+#             */
+/*   Updated: 2022/07/02 21:01:47 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-float  max(float a, float b) 
-{
-    return (a > b) ? a : b;
-}
-
-float  pos(float n)
-{
-    return (n < 0 ) ? -n : n;
-}
-
-void scale(t_axios *axios, float *x, float *y)
-{
-    *x *= axios->scale;
-    *y *= axios->scale;
-}
-
 void isometric(float *x, float *y, int z)
 {
     *x = (*x - *y) * cos(0.8);
     *y = (*x + *y) * sin(0.8) - z;
+}
+
+float  max(float a, float b) 
+{
+    if (a > b)
+        return (a);
+    else
+        return (b);
+}
+
+float  pos(float n)
+{
+    if (n < 0)
+        return (-n);
+    else
+        return (n);
+}
+
+void scale(t_axios *axios, float *x, float *y, float *x1, float *y1)
+{
+    *x *= axios->scale;
+    *y *= axios->scale;
+    *x1 *= axios->scale;
+    *y1 *= axios->scale;
 }
 
 void move(t_axios *axios, float *x, float *y, float *x1, float *y1)

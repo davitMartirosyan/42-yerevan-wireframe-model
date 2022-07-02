@@ -6,14 +6,14 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 01:23:44 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 07:17:01 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:02:31 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 #define HEADER_H
 
-// #include <mlx.h>
+#include <mlx.h>
 #include "libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,13 +36,27 @@ typedef struct s_axios
     int _y;
 }   t_axios;
 
+typedef struct s_coords
+{
+    float x;
+    float y;
+    float x1;
+    float y1;
+} t_coords;
+
 //generating
 float  max(float a, float b);
 float  pos(float n);
+
 void map_init(t_axios *axios, char *filename);
-void draw(float x, float y, float x1, float y1, t_axios *axios);
 void wireframe_init(t_axios *axios);
 void isometric(float *x, float *y, int z);
-void scale(t_axios *axios, float *x, float *y);
+
+int rgb(int z, int z1, int def);
+int keycode(int key, t_axios *axios);
+
+//cordinates
+void draw(t_coords coords, t_axios *axios);
+void scale(t_axios *axios, float *x, float *y, float *x1, float *y1);
 void move(t_axios *axios, float *x, float *y, float *x1, float *y1);
 #endif

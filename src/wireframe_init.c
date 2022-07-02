@@ -6,30 +6,42 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 04:23:37 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/26 07:17:11 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:52:51 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
+void cordinate_init(t_coords coords, t_axios *axios)
+{
+    if(coords.x < axios->width - 1)
+    {
+        coords.x1 = coords.x+1;
+        coords.y1 = coords.y;
+        draw(coords, axios);
+    }
+    if(coords.y < axios->height - 1)
+    {
+        coords.x1 = coords.x;
+        coords.y1 = coords.y+1;
+        draw(coords, axios);
+    }
+}
+
 void wireframe_init(t_axios *axios)
 {
-    int x;
-    int y;
-    axios->rgb = 0xc00a1c;
-    y = 0;
-    while(y < axios->height)
+    t_coords coords;
+
+    coords.y = 0;
+    while(coords.y < axios->height)
     {
-        x = 0;
-        while(x < axios->width)
+        coords.x = 0;
+        while(coords.x < axios->width)
         {
-            if(x < axios->width - 1)
-                draw(x, y, x+1, y, axios);
-            if(y < axios->height - 1)
-                draw(x, y, x, y+1, axios);
+            cordinate_init(coords, axios);
             axios->rgb += 0xffc1ac;   
-            x++;
+            coords.x++;
         }
-        y++;
+        coords.y++;
     }
 }

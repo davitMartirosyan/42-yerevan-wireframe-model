@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:11:31 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/04/03 22:03:26 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcpy(void *dest, const char *src, size_t n)
 		return (0);
 	if (n != 0)
 	{
-		while (s[i] != '\0' && i < (n - 1))
+		while (s[i] != '\0' &coords->&coords-> i < (n - 1))
 		{
 			d[i] = s[i];
 			i++;
