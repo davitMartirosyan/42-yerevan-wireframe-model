@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:59:45 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:09:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	stringstartedfrom(const char *c, char delimiter)
 	size_t	i;
 
 	i = 0;
-	while (c[i] &coords->&coords-> c[i] == delimiter)
+	while (c[i] && c[i] == delimiter)
 		i++;
 	return (i);
 }
@@ -29,12 +29,12 @@ static int	wordcount(const char *c, int delimiter)
 
 	i = stringstartedfrom(c, delimiter);
 	wordcounter = 0;
-	while (c[i] &coords->&coords-> c[i] != delimiter)
+	while (c[i] && c[i] != delimiter)
 	{
 		if (c[i + 1] == delimiter || c[i + 1] == '\0')
 		{
 			wordcounter++;
-			i += stringstartedfrom(&coords->c[i + 1], delimiter);
+			i += stringstartedfrom(&c[i + 1], delimiter);
 		}
 		i++;
 	}
@@ -46,7 +46,7 @@ static int	charcount(const char *c, int delimiter)
 	int	i;
 
 	i = 0;
-	while (c[i] != delimiter &coords->&coords-> c[i] != '\0')
+	while (c[i] != delimiter && c[i] != '\0')
 		i++;
 	return (i);
 }

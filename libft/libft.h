@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 18:22:35 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/06/14 06:14:43 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:13:53 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 int		ft_lstsize(t_list *lst);
-
 char	*get_next_line(int fd, int check);
 #endif

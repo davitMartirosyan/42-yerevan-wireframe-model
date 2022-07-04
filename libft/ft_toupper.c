@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:15:23 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:21:54 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	if (c >= 97 &coords->&coords-> c <= 122)
+	if (c >= 97 && c <= 122)
 		return (c - 32);
 	return (c);
 }

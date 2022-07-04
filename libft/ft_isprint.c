@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:08:53 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/03 21:31:41 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int print)
 {
-	if (print >= 32 &coords->&coords-> print < 127)
+	if (print >= 32 && print < 127)
 		return (print);
 	return (0);
 }

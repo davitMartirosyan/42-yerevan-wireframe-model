@@ -6,7 +6,7 @@
 #    By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 20:17:29 by dmartiro          #+#    #+#              #
-#    Updated: 2022/06/12 02:57:20 by dmartiro         ###   ########.fr        #
+#    Updated: 2022/07/04 10:29:11 by dmartiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,13 @@ SRCS = ft_memset.c		\
 		ft_strjoin.c 	\
 		ft_strtrim.c		\
 		ft_split.c		\
-		ft_wordcounter.c	\
 		ft_itoa.c		\
 		ft_strmapi.c		\
 		ft_putchar_fd.c	\
 		ft_putstr_fd.c	\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c	\
-		get_next_line.c
+		get_next_line.c	\
 
 SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -71,13 +70,13 @@ CC = gcc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c libft.h get_next_line.h
+$(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c -fPIE $< -o $@
+	@clang $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED) 
+	@ar r $(NAME) $(OBJECTS_PREFIXED)
 	@echo "Libft Done !"
 
 all: $(NAME)

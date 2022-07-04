@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:15:00 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/06 20:53:15 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t n)
 	i = 0;
 	if (!memory)
 		return (0);
-	while (i < n &coords->&coords-> s[start + i] != '\0')
+	while (i < n && s[start + i] != '\0')
 	{
 		memory[i] = s[start + i];
 		i++;

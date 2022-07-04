@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:08:11 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/03 21:29:37 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isascii(int ascii)
 {
-	return (ascii >= 0 &coords->&coords-> ascii < 128);
+	return (ascii >= 0 && ascii < 128);
 }

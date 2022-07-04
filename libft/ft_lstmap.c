@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 18:06:06 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/07/02 21:01:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/04/06 21:01:06 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		newnode = ft_lstnew(f(lst->content));
 		if (!newnode)
 		{
-			ft_lstclear(&coords->newlist, del);
+			ft_lstclear(&newlist, del);
 			return (newlist);
 		}
-		ft_lstadd_back(&coords->newlist, newnode);
+		ft_lstadd_back(&newlist, newnode);
 		lst = lst->next;
 	}
 	return (newlist);
